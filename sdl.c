@@ -7,10 +7,10 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    SDL_Window *window = SDL_CreateWindow("SDL2 Rectangle", 
+    SDL_Window *window = SDL_CreateWindow("SDL screen 0x13 simulator", 
                                           SDL_WINDOWPOS_CENTERED, 
                                           SDL_WINDOWPOS_CENTERED, 
-                                          800, 600, 
+                                          320, 200, 
                                           SDL_WINDOW_SHOWN);
     if (!window) {
         printf("SDL_CreateWindow Error: %s\n", SDL_GetError());
@@ -26,23 +26,16 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Black background
+    SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255); // Black background
     SDL_RenderClear(renderer);
 
-    // Set rectangle color
-    SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255); 
+    
 
+     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Black background
+    
     // Define the rectangle
-    SDL_Rect rect = {0, 0, 800, 600}; // x, y, width, height
-
-    // Draw the rectangle outline
-    SDL_RenderFillRect(renderer, &rect);
-    // Set rectangle color
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Red
-
-    // Define the rectangle
-    for(int i=0;i<800;i=i+100){
-        SDL_Rect r = {i, 100, 90, 100}; // x, y, width, height
+    for(int i=0;i<320;i=i+50){
+        SDL_Rect r = {i, 100, 40, 100}; // x, y, width, height
 
        
         // Uncomment the next line to fill the rectangle
