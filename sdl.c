@@ -1,4 +1,6 @@
 #include <SDL2/SDL.h>
+#include "SDLs.h"
+
 #include <stdio.h>
 
 #define WIDTH  320
@@ -36,15 +38,12 @@ int main(int argc, char *argv[]) {
     }
 
     // Fill the texture with 256 colors
-    Uint8 pixels[WIDTH * HEIGHT];
-    for (int y = 0; y < HEIGHT; ++y) {
-        for (int x = 0; x < WIDTH; ++x) {
-            pixels[y * WIDTH + x] = (Uint8)((3<<6)| (3<<3)); // Gradient of 256 colors
-        }
-    }
-
+    
     // Update the texture with the pixel data
-    SDL_UpdateTexture(texture, NULL, pixels, WIDTH);
+    clears(255,255,0);
+    for(int x=0;x<320;x=x+20)line(x,0,x,200,0,0,0);
+    for(int y=0;y<200;y=y+20)line(0,y,320,y,0,0,0);
+    SDL_UpdateTexture(texture, NULL, screen, WIDTH);
 
     // Main loop
     int running = 1;
